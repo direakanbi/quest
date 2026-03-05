@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import Navbar from './Navbar';
+import { supabase } from '../supabaseClient';
 
 function CheckoutPage() {
     const { cart, cartTotal, clearCart } = useCart();
@@ -27,13 +28,45 @@ function CheckoutPage() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulate processing
-        setTimeout(() => {
+
+        try {
+            // 1. Insert transaction into Supabase
+            const { error: txError } = await supabase.from('transactions').insert([{
+                client_email: formData.email,
+                amount: cartTotal,
+                status: 'Completed'
+            }]);
+
+            if (txError) throw txError;
+
+            // 2. Deduct stock for purchased items
+            for (const item of cart) {
+                // Fetch current stock from DB using handle
+                const { data: productData, error: fetchError } = await supabase
+                    .from('products')
+                    .select('stock')
+                    .eq('handle', item.handle)
+                    .single();
+
+                if (!fetchError && productData) {
+                    const currentStock = productData.stock || 0;
+                    const newStock = Math.max(0, currentStock - item.quantity);
+
+                    await supabase
+                        .from('products')
+                        .update({ stock: newStock })
+                        .eq('handle', item.handle);
+                }
+            }
+
             setIsSuccess(true);
             clearCart();
-        }, 1500);
+        } catch (error) {
+            console.error("Checkout failed:", error);
+            alert("There was an issue processing your order. Please try again.");
+        }
     };
 
     if (isSuccess) {

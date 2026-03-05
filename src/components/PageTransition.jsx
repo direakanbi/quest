@@ -7,17 +7,19 @@ function PageTransition({ children }) {
     const location = useLocation();
 
     useEffect(() => {
-        // Trigger loading on route change
-        setIsLoading(true);
+        let timer;
+        const startTransition = async () => {
+            setIsLoading(true);
+            timer = setTimeout(() => {
+                setIsLoading(false);
+                window.scrollTo(0, 0);
+            }, 1200);
+        };
 
-        // "Warp" duration
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-            window.scrollTo(0, 0); // Ensure we start at top of new page
-        }, 1200); // 1.2s warp duration
+        startTransition();
 
         return () => clearTimeout(timer);
-    }, [location.pathname]); // Only trigger when path changes
+    }, [location.pathname]);
 
     return (
         <>

@@ -11,6 +11,13 @@ import { CartProvider } from './context/CartContext';
 import CartDrawer from './components/CartDrawer';
 import CheckoutPage from './components/CheckoutPage';
 
+import AdminLayout from './components/Admin/AdminLayout';
+import AdminLogin from './components/Admin/AdminLogin';
+import ProtectedRoute from './components/Admin/ProtectedRoute';
+import AdminDashboard from './components/Admin/AdminDashboard';
+import AdminProducts from './components/Admin/AdminProducts';
+import AdminTransactions from './components/Admin/AdminTransactions';
+
 function App() {
   return (
     <CartProvider>
@@ -41,6 +48,16 @@ function App() {
               <Route path="/products/:handle" element={<ProductPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
+
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin" element={<ProtectedRoute />}>
+                <Route element={<AdminLayout />}>
+                  <Route path="dashboard" element={<AdminDashboard />} />
+                  <Route path="products" element={<AdminProducts />} />
+                  <Route path="transactions" element={<AdminTransactions />} />
+                  <Route index element={<AdminDashboard />} />
+                </Route>
+              </Route>
             </Routes>
           </PageTransition>
         </div>

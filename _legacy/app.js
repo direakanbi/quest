@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- Size Selection Logic ---
     const sizeBtns = document.querySelectorAll('.size-btn');
     const selectedSizeLabel = document.getElementById('selected-size');
@@ -41,8 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Only enable on small screens potentially, or just by scroll
     window.addEventListener('scroll', () => {
-        const btnPosition = addToCartBtn.getBoundingClientRect().bottom;
-        
         // If main button is scrolled out of view (negative top usually implies it's above viewport)
         // A simple heuristic: if we've scrolled past the first 400px
         if (window.scrollY > 400) {
