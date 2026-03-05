@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomic World Quest T-Shirt - QUEST SOCIETY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation (Simplified) -->
+    <nav class="navbar">
+        <div class="logo">QUEST SOCIETY</div>
+        <div class="cart-icon">🛒 <span class="cart-count">0</span></div>
+    </nav>
+
+    <!-- Main Product Section -->
+    <main class="product-container">
+        
+        <!-- Gallery -->
+        <section class="product-gallery">
+            <div class="main-image-container">
+                <img src="https://cdn.shopify.com/s/files/1/0663/7528/6999/products/AtomicWorldQuestT-ShirtWhite_1024x1024.png?v=1665672000" 
+                     alt="Atomic World Quest T-Shirt Front" 
+                     class="main-image"
+                     onerror="this.src='https://placehold.co/600x800/111/FFF?text=Space+T-Shirt'">
+            </div>
+            <div class="thumbnail-grid">
+                <!-- Placeholders simulating other angles -->
+                <div class="thumb active"></div>
+                <div class="thumb"></div>
+                <div class="thumb"></div>
+            </div>
+        </section>
+
+        <!-- Product Details -->
+        <section class="product-info">
+            <h1 class="product-title">ATOMIC WORLD QUEST T-SHIRT // WHITE</h1>
+            <div class="price-container">
+                <span class="price">$80.00 USD</span>
+                <span class="installments">Pay in 4 interest-free payments of $20.00.</span>
+            </div>
+
+            <!-- Size Selector -->
+            <div class="selector-group">
+                <div class="label-row">
+                    <label>SIZE: <span id="selected-size">M</span></label>
+                    <button class="size-guide-btn" id="open-size-guide">📏 Size Guide</button>
+                </div>
+                <div class="size-options">
+                    <button class="size-btn">S</button>
+                    <button class="size-btn active">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                    <button class="size-btn">XXL</button>
+                </div>
+            </div>
+
+            <!-- Add to Cart -->
+            <button class="add-to-cart-btn">ADD TO CART</button>
+
+            <!-- NEW: Product Description & Details -->
+            <div class="details-accordion">
+                <div class="detail-item">
+                    <h3>DESCRIPTION</h3>
+                    <p>Unlock the cosmos. The Atomic World Quest T-Shirt is crafted for intergalactic travel and urban exploration. Featuring high-definition digital transfer print on premium heavyweight cotton.</p>
+                </div>
+                <div class="detail-item">
+                    <h3>SPECS & FIT</h3>
+                    <ul>
+                        <li><strong>Fabric:</strong> 100% Heavyweight Cotton (240gsm)</li>
+                        <li><strong>Fit:</strong> Slightly Oversized / Boxy Cut</li>
+                        <li><strong>Print:</strong> DTG High-Fidelity Artwork</li>
+                        <li><strong>Care:</strong> Wash cold inside out, hang dry. Do not iron print.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Trust / Policy Icons (Simplified) -->
+            <div class="trust-signals">
+                <div class="trust-item">
+                    <span>🚀</span> FREE SHIPPING > $150
+                </div>
+                <div class="trust-item">
+                    <span>🛡️</span> SECURE CHECKOUT
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Size Guide Modal -->
+    <div class="modal-overlay" id="size-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>SIZE GUIDE</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>Chest (in)</th>
+                            <th>Length (in)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>S</td><td>20"</td><td>27"</td></tr>
+                        <tr><td>M</td><td>22"</td><td>28"</td></tr>
+                        <tr><td>L</td><td>24"</td><td>29"</td></tr>
+                        <tr><td>XL</td><td>26"</td><td>30"</td></tr>
+                        <tr><td>XXL</td><td>28"</td><td>31"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="size-note">Measurements are flat across. For oversized look, size up.</p>
+        </div>
+    </div>
+
+    <!-- Mobile Sticky Bar -->
+    <div class="sticky-bar" id="sticky-bar">
+        <div class="sticky-thumb">
+            <img src="https://placehold.co/100x100/111/FFF?text=T" alt="Thumb">
+        </div>
+        <div class="sticky-info">
+            <span class="sticky-title">ATOMIC QUEST</span>
+            <span class="sticky-price">$80.00</span>
+        </div>
+        <button class="sticky-btn">ADD TO CART</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
