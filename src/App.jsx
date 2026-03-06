@@ -30,6 +30,9 @@ function App() {
               loop
               muted
               playsInline
+              controls={false}
+              disablePictureInPicture
+              controlsList="nodownload nofullscreen noremoteplayback"
               className="bg-video"
               poster="https://cdn.shopify.com/s/files/1/0809/1690/6265/files/poster_image.jpg"
             >
