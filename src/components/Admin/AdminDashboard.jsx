@@ -171,7 +171,7 @@ const AdminDashboard = () => {
                                     <div>
                                         <p style={{ margin: '0 0 5px 0', color: 'var(--text-primary)', fontWeight: 'bold' }}>{order.client_email}</p>
                                         <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
-                                            {format(new Date(order.created_at), 'MMM dd, yyyy - HH:mm')}
+                                            {format(new Date(order.created_at), 'MMM dd, yyyy - h:mm a')}
                                         </p>
                                     </div>
                                     <div style={{ textAlign: 'right' }}>

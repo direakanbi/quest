@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { RefreshCw } from 'lucide-react';
 import { supabase } from '../../supabaseClient';
+import { format } from 'date-fns';
 
 const AdminTransactions = () => {
     const [transactions, setTransactions] = useState([]);
@@ -102,7 +103,9 @@ const AdminTransactions = () => {
                                                 <option value="Failed">Failed</option>
                                             </select>
                                         </td>
-                                        <td style={{ padding: '15px 20px', color: 'var(--text-secondary)' }}>{new Date(tx.created_at).toLocaleString()}</td>
+                                        <td style={{ padding: '15px 20px', color: 'var(--text-secondary)' }}>
+                                            {format(new Date(tx.created_at), 'MMM dd, yyyy - h:mm a')}
+                                        </td>
                                     </tr>
                                 ))
                             )}
